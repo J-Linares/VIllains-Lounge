@@ -81,10 +81,9 @@ and to advise you of any pitfals you may encounter in development-->
         text-align: center;
     }
 
-
     body {
         background-color: rgba(210, 105, 30, 0.842);
-        background-image: url(https://cdn.discordapp.com/attachments/521154378879729664/796570539552407603/iu.png);
+        background-image: url(img/iu.png);
         display: grid;
         justify-content: center;
     }
