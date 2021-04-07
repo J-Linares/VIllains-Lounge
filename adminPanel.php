@@ -65,11 +65,16 @@
     <a href="villainsLoungeMain.php" style="text-align: right; font-size: large;" ><button type="button">Home</button></a>
     <br>
     
-    <!--- add the user login module , see how you can obtain user input
-          so you can crossreference login credentials  to obtain access to the main admin splash page 
-          ensure to add a login redirect to return to the admin credential page
-    -->
-    <!-- Admin login -->
+    <!-- Admin panel -->
+
+    <!-- Admin panel should have the function of adding more admins to the admin list from 
+         the credentials found within the membership requests table in the villains lounge dbms
+    
+        main functionality would be to add users to the admin access page
+        
+        consider displaying information from the villains lounge requests dynamically in real tine
+        -->
+
    admin page
 
 </body>

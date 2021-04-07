@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-<!---This will be the simple splash page for log in for admin Users
+<!---This will be the simple splash page for log in for admin Users.
     once an admin user logs into the page then it should redirect the user to the admin control page
     if the login fails, the page should display a message that the page would notify the user that
     their credentials are not found within the system
 
     only registered users should have access to the administrator page, so once a set of credentials is
-     cross referenced from within the -->
-
-
+     cross referenced from within the existing credentials found within the adminList table
+     that specific user can gain access to admin functions-->
 
 <!-- Remember to have a consistent aesethtic design across all pages you 
         will be developing, you can borrow style and modules across all your 
-        web pages so long as it is approriate
+        web pages so long as it is approriate.
     -->
 <style>
     .adminPanel {

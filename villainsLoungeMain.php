@@ -255,7 +255,7 @@ and to advise you of any pitfals you may encounter in development-->
             <label for="username">
                 <i class="fas fa-user"></i>
             </label>
-            <input type="text" name="RequestUsername" placeholder="Username" id="RequestUsername" required>
+            <input type="varchar" name="RequestUsername" placeholder="Username" id="RequestUsername" required>
             <label for="password">
                 <i class="fas fa-lock"></i>
             </label>

@@ -1,6 +1,14 @@
 <?php
 
 include_once 'VLdb.php';
+// use our connection file so that our $conn dbms connection variable can be used
+// this file will serve as the setting for any database entries.
+
+
+//once a visitor clicks the submit button on the data entry fields for serverhosting
+//requests, the info will be sent directly to the hosting requests database,
+// more functionality with this information will be done later to help admins figure out 
+//how to best use the information for server hosting decisions.
 if(isset($_POST['submit']))
 {    
      $GameName = $_POST['GameName'];
@@ -18,12 +26,16 @@ if(isset($_POST['submit']))
      }
      mysqli_close($conn);
 }
+// find means of displaying information on the main page whether or not a request has been processed
+// successfully
 
-
+//the data entry cannot be completed in the same manner as the previous server hosting
+// we must enforce unique usernames so that no 2 user can request the same username with any admins
+// or requesting users
 if(isset($_POST['Register']))
 {    
      $RequestUsername = $_POST['RequestUsername'];
-     $RequestPassword = $_POST['RequestPassword'];
+     $RequestPassword = $_POST['RequestPassword']; // find a way to hash this information, passwrods in plain text are a HUGE ISSUE.
      $RequestEmail = $_POST['RequestEmail'];
 
      $sql = "INSERT INTO membershiprequest (RequestUsername,RequestPassword,RequestEmail)
@@ -35,6 +47,9 @@ if(isset($_POST['Register']))
         header("Location: http://localhost/Villains%20Lounge/villainsLoungeMain.php");
         exit;
      } else {
+        //figure out a way to redirect back to the main page, or prevent users from entering
+        //faulty information before
+        echo "credentials are not valid, use a different username or password.";
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
      mysqli_close($conn);
