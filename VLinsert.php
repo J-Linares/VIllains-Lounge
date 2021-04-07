@@ -51,14 +51,32 @@ if (empty($_POST['RequestUsername']) || empty($_POST['RequestPassword']) || empt
 
 
 if(isset($_POST['Register']))
-{    
-     $RequestUsername = $_POST['RequestUsername'];
-     $RequestPassword = $_POST['RequestPassword']; // find a way to hash this information, passwrods in plain text are a HUGE ISSUE.
-     $RequestEmail = $_POST['RequestEmail'];
+{    // we are taking in the info from the entry fields for registration
+     // we are placing the data from user input into the verify variables
+     // we must then use those verify variables to cross reference their values within the database
+     $VerifyUsername = $_POST['RequestUsername'];
+     $VerifyPassword = $_POST['RequestPassword']; // find a way to hash this information, passwrods in plain text are a HUGE ISSUE.
+     $VerifyEmail = $_POST['RequestEmail'];
 
+     //query the information to verify if it exists already within the database
+     //verify information from both the requested Username and emails and Admin username/emails
+     $query = "SELECT 'RequestUsername', 'RequestEmail 
+               FROM adminlist 
+               WHERE ('$VerifyUsername' = 'RequestUsername' OR
+                      '$VerifyEmail' = 'RequestEmail') ";
+      if(mysqli_query($conn,$query)){
+
+         echo "username/email found, use another";
+      }
+
+      else {
+         echo "$VerifyUsername $VerifyEmail";
+         echo " username + email registered";
+      }
+
+      /*
      $sql = "INSERT INTO membershiprequest (RequestUsername,RequestPassword,RequestEmail)
-     
-     VALUES ('$RequestUsername','$RequestPassword','$RequestEmail')";
+             VALUES ('$RequestUsername','$RequestPassword','$RequestEmail')";
      if (mysqli_query($conn, $sql)) {
         echo "New admin application has been sent successfully !";
         
@@ -71,6 +89,7 @@ if(isset($_POST['Register']))
         echo "credentials are not valid, use a different username or password.";
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
+     */
      mysqli_close($conn);
 }
 
