@@ -32,6 +32,24 @@ if(isset($_POST['submit']))
 //the data entry cannot be completed in the same manner as the previous server hosting
 // we must enforce unique usernames so that no 2 user can request the same username with any admins
 // or requesting users
+
+//ensure
+
+// Now we check if the data was submitted, isset() function will check if the data exists.
+if (!isset($_POST['RequestUsername'], $_POST['RequestPassword'], $_POST['RequestEmail'])) {
+	// Could not get the data that should have been sent.
+	exit('Please complete the registration form!');
+}
+
+// Make sure the submitted registration values are not empty.
+if (empty($_POST['RequestUsername']) || empty($_POST['RequestPassword']) || empty($_POST['RequestEmail'])) {
+	// One or more values are empty.
+	exit('Please complete the registration form');
+}
+
+
+
+
 if(isset($_POST['Register']))
 {    
      $RequestUsername = $_POST['RequestUsername'];
@@ -48,11 +66,14 @@ if(isset($_POST['Register']))
         exit;
      } else {
         //figure out a way to redirect back to the main page, or prevent users from entering
-        //faulty information before
+        //faulty information before, display some kind of information or notification to alert users
+        //of the data entry issue
         echo "credentials are not valid, use a different username or password.";
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
      mysqli_close($conn);
 }
 
+
 ?>
+

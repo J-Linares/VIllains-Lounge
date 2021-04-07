@@ -200,7 +200,9 @@ and to advise you of any pitfals you may encounter in development-->
     </div>
     <!--suggestions for server  hosting services-->
     <!--find a way to automate this process by manually creating div  classes for the specific styles and widget functionality if possible-->
-
+    <!--whenever taking in any form of user input into our database ensure that all data entered is as
+        clean as possible for managing the database.-->
+    
     <h5 style="color: rgb(179, 100, 3);"> Hosting Suggestions: </h5>
 
     <div class="infoModule">
@@ -211,12 +213,12 @@ and to advise you of any pitfals you may encounter in development-->
                 <form action="VLinsert.php" method="post" style=" display: grid; justify-content: center;">
                     <div class="suggestPrompt">
                         <label for="GameName"> Game name: </label>
-                        <input style="float: right;" type="text" id="GameName" name="GameName" class="form-control">
+                        <input style="float: right;" type="text" id="GameName" name="GameName" class="form-control" required>
                     </div>
 
                     <div class="suggestPrompt">
                         <label for="ServerLocation"> Server Location: </label>
-                        <input type="text" id="ServerLocation" name="ServerLocation" class="form-control"> <br>
+                        <input type="text" id="ServerLocation" name="ServerLocation" class="form-control" required> <br>
                     </div>
 
                     <input type="submit" class="btn btn-primary" name="submit" value="submit"
@@ -226,6 +228,8 @@ and to advise you of any pitfals you may encounter in development-->
             </div>
         </p4>
     </div>
+
+    <!--this banner below will also need to be changing dynamically as games get added to the hosting list-->
 
     <h5 style="color:crimson;"> Servers coming soon: </h5>
 
@@ -270,6 +274,11 @@ and to advise you of any pitfals you may encounter in development-->
 
     <br>
     <br>
+
+    <!---find means of making this particular list a dynamically updating list of admin names
+         consider using another technology, this is currently a place holder
+         prime example of when we can inject javascript for dynamically displaying information
+        -->
 
     <h5 style="color:crimson; text-align: center; justify-content: center;"> Current Admins: </h5>
     <div class="adminPanel">

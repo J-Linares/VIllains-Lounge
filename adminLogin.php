@@ -75,12 +75,12 @@
         <form action="VLinsert.php" method="post" style=" display: grid; justify-content: center; text-align: left;">
             <div class="suggestPrompt">
                 <label for="Userame" > Username: </label>
-                <input style="float: right;" type="text" id="Username" name="Username" class="form-control">
+                <input style="float: right;" type="text" id="Username" name="Username" class="form-control" required>
             </div>
 
             <div class="suggestPrompt">
                 <label for="Password"> Password: </label>
-                <input type="text" id="Password" name="Password" class="form-control"> <br>
+                <input type="text" id="Password" name="Password" class="form-control" required> <br>
             </div>
 
             <input type="submit" class="btn btn-primary" name="submit" value="Login"
