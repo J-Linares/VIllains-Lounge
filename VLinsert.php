@@ -48,24 +48,53 @@ if (empty($_POST['RequestUsername']) || empty($_POST['RequestPassword']) || empt
 }
 
 
-
-
-if(isset($_POST['Register']))
-{    // we are taking in the info from the entry fields for registration
+if(isset($_POST['Register'])){    // we are taking in the info from the entry fields for registration
      // we are placing the data from user input into the verify variables
      // we must then use those verify variables to cross reference their values within the database
-     $VerifyUsername = $_POST['RequestUsername'];
-     $VerifyPassword = $_POST['RequestPassword']; // find a way to hash this information, passwrods in plain text are a HUGE ISSUE.
-     $VerifyEmail = $_POST['RequestEmail'];
+     // $VerifyUsername = $_POST['RequestUsername'];
+     // find a way to hash this information, passwrods in plain text are a HUGE ISSUE.
+     // $VerifyEmail = $_POST['RequestEmail'];
 
      //query the information to verify if it exists already within the database
      //verify information from both the requested Username and emails and Admin username/emails
-     $query = "SELECT 'RequestUsername', 'RequestEmail 
-               FROM adminlist 
-               WHERE ('$VerifyUsername' = 'RequestUsername' OR
-                      '$VerifyEmail' = 'RequestEmail') ";
-      if(mysqli_query($conn,$query)){
+     
+     if($stmt = $conn->prepare('SELECT RequestPassword FROM membershiprequest WHERE RequestUsername = ?' )){
+        //obtain the credentials for membership from user input,
+        //store them from POST into a variable that can be input into php and sent into our SQL database
+        $stmt->bind_param('s', $_POST['RequestUsername']);
+        $stmt->execute();
+        $stmt->store_result();
+        // store the requested username so we can check it against current requested/verified admins
+        if($stmt->num_rows > 0){
+           //username is found, ensure that a message is displayed to thew user
+           echo 'Username already exists in Membership Requests,use another Username.';
+        }
+        else {
+           //a username is not found in the requests database, therefore we can add it
+           //to the request database
 
+           //after we ensure that requested usernames are uunique, compare them against any 
+           //registered ADMIN user names and EMAILS
+            if($stmt = $conn->prepare('INSERT INTO membershiprequests(RequestUsername, RequestPassword, RequestEmail) VALUES(?,?,?)')){
+               $VerifyPassword = password_hash($_POST['RequestPassword'], PASSWORD_DEFAULT);
+               $stmt->bind_param('sss', $_POST['RequestUsername'], $VerifyPassword, $_POST['RequestEmail']);
+               $stmt->execute();
+               echo "Your Account has been submitted for Admin Approval" ;
+            }
+        }
+        
+        $stmt->close();
+     } else {
+        //verify no issues arise with our SQL statements
+        echo 'could not prepare statement!';
+     }
+
+     /*
+     $query = "SELECT RequestUsername 
+               FROM  adminList
+               WHERE RequestUsername = '$VerifyUsername' ;";
+
+      if($query = true){
          echo "username/email found, use another";
       }
 
@@ -73,6 +102,7 @@ if(isset($_POST['Register']))
          echo "$VerifyUsername $VerifyEmail";
          echo " username + email registered";
       }
+      */
 
       /*
      $sql = "INSERT INTO membershiprequest (RequestUsername,RequestPassword,RequestEmail)
@@ -90,9 +120,7 @@ if(isset($_POST['Register']))
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
      */
-     mysqli_close($conn);
 }
-
-
+$conn->close();
 ?>
 

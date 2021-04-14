@@ -252,7 +252,7 @@ and to advise you of any pitfals you may encounter in development-->
         <strong style="font-size: 20px;">Apply below, and we will E-mail you back soon!</Strong>
     </h4>
 
-    <!--Admin login -->
+    <!--Admin request  -->
     <div class="register">
         <form action="VLinsert.php" method="post" autocomplete="off">
             <!-- these are  the labels for the entry fields these labels-->>
