@@ -13,35 +13,8 @@
         will be developing, you can borrow style and modules across all your 
         web pages so long as it is approriate.
     -->
-<style>
-    .adminPanel {
-        border: 5px outset rgb(179, 54, 16);
-        background-color: rgba(81, 110, 23, 0.322);
-        text-align: center; 
-    }
+<link href="style.css" rel="stylesheet" type="text/css">
 
-    .myDiv {
-        border: 5px outset rgb(179, 54, 16);
-        background-color: rgba(81, 110, 23, 0.322);
-        text-align: center;
-    }
-
-    body {
-        background-color: rgba(210, 105, 30, 0.842);
-        background-image: url(https://cdn.discordapp.com/attachments/521154378879729664/796570539552407603/iu.png);
-        display: grid;
-        justify-content: center;
-    }
-
-    h1 {
-        background-color: rgb(129, 129, 3);
-        font-style: italic;
-        font-family: 'Courier New', Courier, monospace;
-        display: grid;
-        justify-content: center;
-        border: dashed rgba(161, 67, 0, 0.87);
-    }
-</style>
 
 <!--discover a method of introducing a button that can redirect you from the main landing page
     onto this page, and implement a home button icon if possible, that will trake you back to the splash page

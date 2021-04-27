@@ -1,0 +1,91 @@
+.adminPanel {
+    border: 5px outset rgb(179, 54, 16);
+    background-color: rgba(81, 110, 23, 0.322);
+    text-align: center;
+}
+
+.myDiv {
+    border: 5px outset rgb(179, 54, 16);
+    background-color: rgba(81, 110, 23, 0.322);
+    text-align: center;
+}
+
+.serverDiv {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.userDiv {
+    border: 10px outset rgb(204, 103, 9);
+    background-color: rgb(179, 54, 16);
+    text-align: center;
+}
+
+.infoModule {
+
+    text-align: center;
+    font-style: italic;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+}
+
+.suggestBox {
+    border: 3px outset rgba(56, 35, 24, 0.753);
+    background-color: rgba(235, 231, 15, 0.322);
+    display: grid;
+    margin: 5px;
+    border-color: rgba(56, 35, 24, 0.753);
+}
+
+.suggestPrompt {
+    text-align: left;
+    font-size: 15;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.hostedGames {
+    justify-content: center;
+    text-align: center;
+}
+
+body {
+    background-color: rgba(210, 105, 30, 0.842);
+    background-image: url(img/iu.png);
+    display: grid;
+    justify-content: center;
+}
+
+h1 {
+    background-color: rgb(129, 129, 3);
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+    display: grid;
+    justify-content: center;
+    border: dashed rgba(161, 67, 0, 0.87);
+}
+
+h4 {
+    background: rgba(105, 105, 105, 0.678);
+    text-align: inherit;
+}
+
+h5 {
+    background-color: rgba(81, 110, 23, 0.527);
+    font-style: italic;
+    font-size: 30px;
+    display: grid;
+    justify-content: left;
+    border: 5px outset rgba(179, 54, 16, 0.822);
+
+    text-align: center;
+}
+
+h6 {
+    background-color: rgba(0, 128, 0, 0.486);
+    font-style: italic;
+    font-size: 20px;
+    color: crimson;
+}
