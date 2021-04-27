@@ -145,8 +145,10 @@ and to advise you of any pitfals you may encounter in development-->
             <p1>
                 <strong style="font-style: italic; font-size: 30px; color: rgb(160, 45, 45); ">Quake 3: Arena</strong>
                 </br>
+                
                 <strong style="font-style: italic; font-size: 30px; color: rgb(50, 187, 38);">Left 4 Dead
-                </strong> </br>
+                </strong>
+                </br>
             </p1>
         </div>
     </div>
